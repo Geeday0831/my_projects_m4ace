@@ -1,17 +1,16 @@
 const mongoose = require('mongoose');
 
-const url = 'mongodb://'
+const url = 'mongodb+srv://abdulwahabjide:MzE733yg2ewc0lcV@cluster0.0qg0nxj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 
-const client = new MongoClient(url);
+mongoose.connect(url)
+  .then(() => {
+    console.log('Connected to MongoDB with Mongoose');
+    // You can define schemas and models here
+  })
+  .catch((err) => {
+    console.error('Failed to connect to MongoDB', err);
+  });
 
-async function mongoConnect() {
-    try {
-        await client.connect();
-        console.log('connected to mongoDB');
-    } catch (error) {
-        console.error('error occured failed to connect')
-    }finally{
-        await client.close()
-    }
-}
-mongoConnect();
+/* MzE733yg2ewc0lcV */
+
+/* mongodb+srv://<abdulwahabjide>:<MzE733yg2ewc0lcV>@cluster0.0qg0nxj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0 */
